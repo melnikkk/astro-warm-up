@@ -11,10 +11,12 @@ const pokemonDetails = await fetch(
 ---
 
 <div class="mx-auto text-center flex justify-center flex-col items-center">
-  <img
-    class="size-48"
-    src={pokemonDetails.sprites.front_default}
-    alt={pokemonDetails.name}
-  />
-  <a href={`/pokemon/${pokemonDetails.name}`}>{pokemonDetails.name}</a>
+  <a transition:name={`${name}-element`} href={`/pokemon/${name}`}>
+    <img
+      class="size-48"
+      src={pokemonDetails.sprites.front_default}
+      alt={name}
+    />
+    <p>{name}</p>
+  </a>
 </div>

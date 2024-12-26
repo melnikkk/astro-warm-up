@@ -1,5 +1,6 @@
 ---
-import { Astro } from "astro/env";
+import { ClientRouter } from "astro:transitions";
+
 interface Props {
   pageTitle: string;
 }
@@ -9,4 +10,6 @@ const { pageTitle } = Astro.props;
 
 <head>
   <title>{pageTitle}</title>
+
+  <ClientRouter />
 </head>
