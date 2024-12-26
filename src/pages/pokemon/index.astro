@@ -1,0 +1,22 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import PokemonDetails from "../../components/PokemonDetails.astro";
+
+const pokemon = await fetch("https://pokeapi.co/api/v2/pokemon?limit=9")
+  .then((res) => res.json())
+  .then((data) => data.results);
+---
+
+<Layout title="Pokemon">
+  <h1 class="text-center">Pokemon</h1>
+
+  <ul class="grid grid-cols-3">
+    {
+      pokemon.map((poke) => (
+        <li>
+          <PokemonDetails name={poke.name} />
+        </li>
+      ))
+    }
+  </ul>
+</Layout>
