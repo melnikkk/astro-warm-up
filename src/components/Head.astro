@@ -1,0 +1,12 @@
+---
+import { Astro } from "astro/env";
+interface Props {
+  pageTitle: string;
+}
+
+const { pageTitle } = Astro.props;
+---
+
+<head>
+  <title>{pageTitle}</title>
+</head>

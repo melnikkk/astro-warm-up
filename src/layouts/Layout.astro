@@ -1,4 +1,8 @@
 ---
+import Header from "@components/Header.astro";
+import Footer from "@components/Footer.astro";
+import Head from "@components/Head.astro";
+
 interface Props {
   title: string;
 }
@@ -10,31 +14,12 @@ const pageTitle = `Astro Warm Up | ${title}`;
 
 <!doctype html>
 <html lang="en">
-  <head>
-    <title>{pageTitle}</title>
-  </head>
+  <Head {pageTitle} />
   <body>
-    <header>
-      <nav>
-        <ul class="flex gap-4 justify-center">
-          <li
-            class="hover:text-red-400 hover:underline ease-in-out duration-300 transition-all"
-          >
-            <a href="/">Home</a>
-          </li>
-          <li
-            class="hover:text-red-400 hover:underline ease-in-out duration-300 transition-all"
-          >
-            <a href="/blog">Blog</a>
-          </li>
-        </ul>
-      </nav>
-    </header>
+    <Header />
 
     <slot />
 
-    <footer class="text-red-400 text-center">
-      <p>Built with love to the Astro</p>
-    </footer>
+    <Footer />
   </body>
 </html>
