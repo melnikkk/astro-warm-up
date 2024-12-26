@@ -1,6 +1,6 @@
 ---
 title: My second blog post
-date: 25.12.2024
+date: 2024-12-25
 slug: my-second-blog-post
 ---
 
