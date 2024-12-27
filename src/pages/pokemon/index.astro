@@ -1,15 +1,18 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import PokemonDetails from "../../components/PokemonDetails.astro";
+import { db, Pokemon } from "astro:db";
+import Layout from "@layouts/Layout.astro";
+import PokemonDetails from "@components/PokemonDetails.astro";
 
-const pokemon = await fetch("https://pokeapi.co/api/v2/pokemon?limit=9")
-  .then((res) => res.json())
-  .then((data) => data.results);
+// const pokemon = await fetch("https://pokeapi.co/api/v2/pokemon?limit=9")
+//   .then((res) => res.json())
+//   .then((data) => data.results);
+
+const pokemon = await db.select().from(Pokemon);
 ---
 
 <Layout title="Pokemon">
   <h1 class="text-center">Pokemon</h1>
-
+  <a href="/pokemon/add">Add pokemon</a>
   <ul class="grid grid-cols-3">
     {
       pokemon.map((poke) => (
