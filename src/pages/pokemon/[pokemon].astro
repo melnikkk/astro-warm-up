@@ -1,19 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { GetStaticPaths } from "astro";
-import PokemonDetails from "../../components/PokemonDetails.astro";
+import Layout from "@layouts/Layout.astro";
+import PokemonDetails from "@components/PokemonDetails.astro";
 
-export const getStaticPaths = (async () => {
-  const pokemon = await fetch("https://pokeapi.co/api/v2/pokemon?limit=9")
-    .then((res) => res.json())
-    .then((data) => data.results);
-
-  return pokemon.map((poke) => ({
-    params: {
-      pokemon: poke.name,
-    },
-  }));
-}) satisfies GetStaticPaths;
+export const prerender = false;
 
 const { pokemon } = Astro.params;
 ---

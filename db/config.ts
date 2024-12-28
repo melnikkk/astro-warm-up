@@ -2,7 +2,7 @@ import { defineDb, defineTable, column } from "astro:db";
 
 const Pokemon = defineTable({
   columns: {
-    name: column.text(),
+    name: column.text({ unique: true }),
   },
 });
 
