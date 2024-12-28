@@ -1,27 +1,10 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import { db, Pokemon } from "astro:db";
-
-export const prerender = false;
-
-if (Astro.request.method === "POST") {
-  const params = await Astro.request.formData();
-
-  const name = params.get("name");
-
-  await db.insert(Pokemon).values({ name });
-
-  return Astro.redirect("/pokemon");
-}
+import { PokemonForm } from "@components/PokemonForm";
 ---
 
-<Layout title="add pokemon">
+<Layout title="Add pokemon">
   <h1>Add pokemon</h1>
 
-  <form action="/pokemon/add" enctype="multipart/form-data" method="post">
-    <label for="name">Name</label>
-    <input type="text" name="name" id="name" />
-
-    <button type="submit">Add</button>
-  </form>
+  <PokemonForm client:load />
 </Layout>
